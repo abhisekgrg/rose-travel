@@ -36,7 +36,7 @@ button{
     background-color: #0262E0;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 10px!important;
     padding: 10px 20px;
     cursor: pointer;
     transition: backgroud-color 0.5s ease;
@@ -48,6 +48,8 @@ button:hover{
     background-image: url(images/herosection.png);
     height: 100vh;
     background-size: cover;
+    min-width: 100%;
+    padding: 0px 100px;
 }
 .herosection button{
         background-color: #F64602;
@@ -69,3 +71,20 @@ button:hover{
     justify-content: space-between;
     background-color: #E2F0FD;
 }
+.container-banner{
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    width: 100%;
+}
+.section-banner{
+    background-image: url(images/banner.jpg);
+    height: 35vh;
+    background-position: center;
+    background-size: cover;
+
+}
+.banner-title{
+    flex-direction: column;
+    z-index: 2;
+    
+    }

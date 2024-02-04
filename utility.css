@@ -38,11 +38,11 @@ h4{
 .align-item{
     align-items: center;
 }
-.container{
+.box{
     padding:0  100px;
 }
 .section-space{
-    margin: 50px 0;
+    padding: 50px 0;
 }
 .row-gap-15{
     row-gap:15px ;
@@ -67,4 +67,28 @@ h4{
 }
 .black{
     color: black;
+}
+.bg{
+    background-color: #f7f7f7;
+}
+.gradient-overlay{
+    background-image:linear-gradient(to right,#2d4f8f7a, #ff480036);
+
+}
+.banner-h2{
+    font-size: 36px;
+    color: white;
+    font-weight: 600;
+    
+}
+.banner-h3{
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+}
+.grid-container{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 }
