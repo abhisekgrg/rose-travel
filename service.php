@@ -10,8 +10,23 @@
 <body>
     <?php 
     include "header.php";
- 
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "rosetravel";
+    
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $database);
+    
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    
+    
     ?>
+
     <div class="section-banner flex ">
 
         <div class="box container-banner flex align-item justify-content gradient-overlay">
@@ -24,61 +39,33 @@
     </div>
     <div class="section-space">
         <div class="box grid-container">
+<?php
+        $sql = "SELECT * FROM `service`";
+$result = mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result)){
+    
+    $title = $row['title'];
+    $description = $row['description'];
+         
+?>
+
+
+
+
+
             <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-    padding: 20px;">
+                 padding: 20px;">
                 <div><img src="images/2.png" alt=""></div>
                 <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
+                    <h3 class="black"><?php echo $title ?></h3>
+                    <p><?php echo $description ?></p>
                 </div>
             </div>
 
-            <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-    padding: 20px;">
-                <div><img src="images/2.png" alt=""></div>
-                <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
-                </div>
-            </div>
-            <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-    padding: 20px;">
-                <div><img src="images/2.png" alt=""></div>
-                <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
-                </div>
-            </div>
-            <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-    padding: 20px;">
-                <div><img src="images/2.png" alt=""></div>
-                <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
-                </div>
-            </div>
-            <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-                 padding: 20px;">
-                <div><img src="images/2.png" alt=""></div>
-                <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
-                </div>
-            </div>
-            <div class="flex column-gap-20" style="    border: 1px solid #DDE0E5;
-                 padding: 20px;">
-                <div><img src="images/2.png" alt=""></div>
-                <div class="flex flex-direction row-gap-10">
-                    <h3 class="black">Best Guide</h3>
-                    <p>Plan your journey seamlessly with our user-friendly tools for <br>
-                        a personalized and hassle-free experience.</p>
-                </div>
-            </div>
+               
+            <?php
+             }
+            ?>
         </div>
     </div>
     <?php

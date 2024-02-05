@@ -88,3 +88,18 @@ button:hover{
     z-index: 2;
     
     }
+
+   .dashboard .nav-link{
+padding:20px 30px !important;
+border-radius: 0px!important;
+color: #1E293B!important;
+border-bottom: 1px solid #DDE0E5!important ;
+
+}
+.dashboard .nav-pills .nav-link.active{
+    background-color: #1B46C2!important;
+    color: white!important;
+}
+.dashboard .nav-pills{
+    border-radius: 10px!important;
+}
