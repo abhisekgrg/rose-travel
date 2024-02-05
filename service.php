@@ -10,21 +10,8 @@
 <body>
     <?php 
     include "header.php";
-    
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "rosetravel";
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-    
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-    
-    
+   include "includes/dbconnection.php"; 
+   
     ?>
 
     <div class="section-banner flex ">

@@ -26,7 +26,7 @@ if(isset($_POST["btnedit"])){
         }
         if($query)
         {
-            header("location:add.php?action=saved");
+            header("location:dashboard.php");
         }
     }
 }

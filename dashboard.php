@@ -1,27 +1,18 @@
+
+
 <?php
 include "header.php";
- $insert = false;
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "rosetravel";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$insert = false;
+include "includes/dbconnection.php";
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_POST["service-button"])){
   
   $title = $_POST['service-title'];
   $description = $_POST['service-description'];
 
-  $sql = "INSERT INTO `service` (`title`, `description`) VALUES ('$title', '$description')";
-  $result = mysqli_query($conn,$sql);
+  $sql1 = "INSERT INTO `service` (`title`, `description`) VALUES ('$title', '$description')";
+  $result1 = mysqli_query($conn,$sql1);
   $insert = true;
 }
 
@@ -62,7 +53,7 @@ if($insert){
       </div>
       
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" name="service-button">Submit</button>
     </div>
   </form>
 </div>
@@ -105,14 +96,6 @@ if(isset($_POST["btnadd"])){
 
  
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <form action="" method="POST" enctype="multipart/form-data">
         <label>Image
             <input type="file" name="image" class="form" require>
@@ -135,12 +118,12 @@ if(isset($_POST["btnadd"])){
             </tr>
             <?php
             $query=mysqli_query($conn,"SELECT * FROM blogs");
-            while($row=mysqli_fetch_array($query))
+            while($row=mysqli_fetch_assoc($query))
             {
                 echo' <tr>
-                <td><img src="uploads/'.$row['image'].'"></td>
+                <td><img width="100px" src="uploads/'.$row['image'].'"></td>
                 <td>' .$row['title'].'</td>
-                <td>' .$row['title'].'</td>
+                <td>' .$row['Excerpt'].'</td>
                 <td><a href="edit.php ?id=' .$row['id'].'"><button class="btnedit">Edit</button></a></td>
                 <td><a href =\'delete.php?id=' .$row['id']. '\' onclick=\'return confirm"Are you sure you want to delete?")\'">
                 <button class="btndelete">Delete</button></td>
@@ -149,9 +132,6 @@ if(isset($_POST["btnadd"])){
             ?>
         </table>
     </div>
-    
-</body>
-</html> 
     </div>
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">4</div>
     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">5</div>
