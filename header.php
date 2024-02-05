@@ -27,6 +27,9 @@
                             <a class="nav-link" href="about.php">About Us</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="destinations.php">Destinations</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="service.php">Services</a>
                         </li>
                         <li class="nav-item">
