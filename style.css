@@ -103,3 +103,28 @@ border-bottom: 1px solid #DDE0E5!important ;
 .dashboard .nav-pills{
     border-radius: 10px!important;
 }
+/* .test1-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;}
+ .text1{
+    width:200px;
+    box-sizing: border-box;
+    border: 1px solid #1E293B;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.test1 img{
+    width: 200px;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.text1-title{
+    font-size: 24px;
+    margin: 0cm;
+}
+.text1-Excerpt{
+    font-size: 16px;
+    color: #F64602;
+} */
