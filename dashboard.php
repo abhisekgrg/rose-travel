@@ -68,7 +68,91 @@ if($insert){
 </div>
 </div>
     </div>
-    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">Post</div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+    <?php
+include "includes/dbconnection.php";
+$id= $title= $Excerpt= $image=""; 
+if(isset($_POST["btnadd"])){
+    $title=$_POST["title"];
+    $Excerpt=($_POST["Excerpt"]);
+    if(isset($_FILES['image'])){
+        $folder='uploads/';
+        $image_file=$_FILES['image']['name'];
+        $file=$_FILES['image']['tmp_name'];
+        $path=$folder.$image_file;
+        $target_file=$folder.basename($image_file);
+        
+       if( move_uploaded_file($file,$target_file)){
+        echo"file uploaded successfully";
+        $image=$image_file;
+       }
+    
+    $query="INSERT INTO blogs(title,Excerpt,image)
+     VALUES ('$title','$Excerpt','$image')";
+    if(mysqli_query($conn,$query))
+    { echo "data saved";
+    
+    }
+    else{
+        echo "data save failed: " .mysqli_error($conn);
+    }
+    }else{
+        echo "error uploading file";
+    }
+}else{
+        echo "no file chosen for upload";
+    }
+
+ 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label>Image
+            <input type="file" name="image" class="form" require>
+        </label>
+        <label>Title
+            <input type="text" name="title" class="form">
+        </label>
+        <label>Excerpt
+            <input type="text" name="Excerpt" class="form">
+        </label>
+        <button name="btnadd">Insert</button>
+    </form>
+    <div class="fetch">
+        <table>
+            <tr>
+                
+                <th>Image</th>
+                <th>Title</th>
+                <th>Excerpt</th>
+            </tr>
+            <?php
+            $query=mysqli_query($conn,"SELECT * FROM blogs");
+            while($row=mysqli_fetch_array($query))
+            {
+                echo' <tr>
+                <td><img src="uploads/'.$row['image'].'"></td>
+                <td>' .$row['title'].'</td>
+                <td>' .$row['title'].'</td>
+                <td><a href="edit.php ?id=' .$row['id'].'"><button class="btnedit">Edit</button></a></td>
+                <td><a href =\'delete.php?id=' .$row['id']. '\' onclick=\'return confirm"Are you sure you want to delete?")\'">
+                <button class="btndelete">Delete</button></td>
+                </tr>';
+            }
+            ?>
+        </table>
+    </div>
+    
+</body>
+</html> 
+    </div>
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">4</div>
     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">5</div>
   </div>
