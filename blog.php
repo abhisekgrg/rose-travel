@@ -10,7 +10,7 @@
 <body>
     <?php 
     include "header.php";
-    
+    include "includes/dbconnection.php";
     ?>
     <div class="section-banner flex ">
 
@@ -58,7 +58,26 @@
             </div>
         </div>
     </div>
-    <?php
+        <?php
+    $sql="SELECT * FROM `blogs`";
+    $result=mysqli_query($conn,$sql);
+    while($row=mysqli_fetch_assoc($result)){
+      echo '<div class="section-space">';
+      echo '<div class="box grid-container">';
+      echo '<div class ="card">';
+    echo '<div class="card-img-top " >';
+    echo'<img src="uploads/' . $row['image']. '" alt="" width="100%" >'.'</div>';
+    echo'<div class="card-body">';
+    echo '<div class="card-text">'.$row['title'].'</div>';
+    echo '<div class="card-text">'.$row['Excerpt']. '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    }
+    ?>
+<?php
+
 include "footer.php";
 ?>
 </body>
