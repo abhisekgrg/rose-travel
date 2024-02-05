@@ -4,6 +4,19 @@
 include "header.php";
 $insert = false;
 include "includes/dbconnection.php";
+if(isset($_GET["btndelete"])){
+
+
+  $id=$_GET['id'];
+  $sql="DELETE FROM blogs Where id='".$id."'";
+  if($conn->query($sql)==TRUE)
+  {
+    echo "record delete successfully";
+  }
+  else{
+    echo "Error deleting record: " .$conn->error;
+  }
+}
 
 
 if(isset($_POST["service-button"])){
@@ -120,13 +133,19 @@ if(isset($_POST["btnadd"])){
             $query=mysqli_query($conn,"SELECT * FROM blogs");
             while($row=mysqli_fetch_assoc($query))
             {
+              
                 echo' <tr>
                 <td><img width="100px" src="uploads/'.$row['image'].'"></td>
                 <td>' .$row['title'].'</td>
                 <td>' .$row['Excerpt'].'</td>
                 <td><a href="edit.php ?id=' .$row['id'].'"><button class="btnedit">Edit</button></a></td>
-                <td><a href =\'delete.php?id=' .$row['id']. '\' onclick=\'return confirm"Are you sure you want to delete?")\'">
-                <button class="btndelete">Delete</button></td>
+                <td>
+                <form method="GET">
+                <input type="hidden" name="id" value="' .$row['id'].'">
+             
+                <button  type ="submit" class="btndelete" name="btndelete">Delete</button>
+                </form>
+                </td>
                 </tr>';
             }
             ?>

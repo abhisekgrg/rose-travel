@@ -1,7 +1,7 @@
 <?php
 include "includes/dbconnection.php";
 $id=$_GET['id'];
-$sql="DELETE FROM blogs Where Id='".$id."'";
+$sql="DELETE FROM blogs Where id='".$id."'";
 if($conn->query($sql)==TRUE)
 {
     echo "record delete successfully";
