@@ -1,5 +1,3 @@
-
-
 <?php
 include "header.php";
 $insert = false;
@@ -128,6 +126,7 @@ if(isset($_POST["btnadd"])){
                 <th>Image</th>
                 <th>Title</th>
                 <th>Excerpt</th>
+                <th>Action</th>
             </tr>
             <?php
             $query=mysqli_query($conn,"SELECT * FROM blogs");
@@ -153,8 +152,7 @@ if(isset($_POST["btnadd"])){
     </div>
     </div>
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">4</div>
-    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">5</div>
-  </div>
-</div>
-  </div>
-</div>
+    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">
+<?
+include "includes/dbclose.php";
+?>
