@@ -34,7 +34,7 @@
                 <div class="destination-leftside">
 
                 </div>
-                <div class="destination-rightside">
+                <div class="destination-rightside flex flex-direction row-gap-50">
                     <div class="destination-post flex flex-direction row-gap-20">
                         <div class="flex align-item column-gap-20">
                             <img src="images/chitwan.png" alt="" class="destination-post-img">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="line"></div>
-                        <div class="destination-year-block flex justify-content-sb">
+                        <div class="destination-year-block flex justify-content-sb align-item">
                             <div class="destination-year flex flex-direction row-gap-10">
                                 <p>Available through out this year:</p>
                                 <div class="destination-month flex justify-content-sb">
@@ -62,7 +62,44 @@
                                     <p>Dec</p>
                                 </div>
                             </div>
-                            <button class="outline-button">Book Now</button>
+                            <div>
+                            
+                                <button class="outline-button">Book Now <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-post flex flex-direction row-gap-20">
+                        <div class="flex align-item column-gap-20">
+                            <img src="images/dharan.png" alt="" class="destination-post-img">
+                            <div class="flex flex-direction row-gap-10">
+                                <h2>David Fall</h2>
+                                <!-- category -->
+                                <h4>Pokhara</h4>
+                                <p>Kathmandu is the bustling, slightly dusty and never boring capital and 
+is usually the first stop to find some of the best places to visit in Nepal.
+One of the best things about Kathmandu has to be the eclectic mix of 
+temples, historic sites, shrines, restaurants and bustling streets.</p>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="destination-year-block flex justify-content-sb align-item">
+                            <div class="destination-year flex flex-direction row-gap-10">
+                                <p>Available through out this year:</p>
+                                <div class="destination-month flex justify-content-sb">
+                                    <p>Jan</p>
+                                    <p>Feb</p>
+                                    <p>May</p>
+                                    <p>Jul</p>
+                                    <p>Aug</p>
+                                    <p>Sep</p>
+                                    <p>Oct</p>
+                                    <p>Dec</p>
+                                </div>
+                            </div>
+                            <div>
+                            
+                                <button class="outline-button">Book Now <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
